@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+	fmt.Println("Advent of code 2020 day 1")
 	//config load file, target value
 	cfg, err := config.New()
 	if err != nil {

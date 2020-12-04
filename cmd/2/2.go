@@ -3,14 +3,14 @@ package main
 import (
 	"fmt"
 	"log"
-	"strings"
 
 	"github.com/lukeab/adventofcode-2020/pkg/config"
 	"github.com/lukeab/adventofcode-2020/pkg/fileloader"
+	"github.com/lukeab/adventofcode-2020/pkg/passwordvalidator"
 )
 
 func main() {
-	fmt.Println("this will be adventofcode 2020 2")
+	fmt.Println("Advent of code 2020 day 2")
 	cfg, err := config.New()
 	if err != nil {
 		log.Fatal(err)
@@ -22,8 +22,14 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	for _, l := range filedata {
-		fmt.Printf("%s\n", strings.Join(l, ","))
+	cntvalidpws, err := passwordvalidator.GetValidPWCount(filedata)
+	if err != nil {
+		log.Fatal(err)
 	}
+
+	fmt.Printf("%d of %d passwords are valid\n", cntvalidpws, len(filedata))
+	// for _, l := range filedata {
+	// 	fmt.Printf("%s\n", strings.Join(l, ","))
+	// }
 
 }
