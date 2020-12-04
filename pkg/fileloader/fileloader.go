@@ -1,21 +1,21 @@
 package fileloader
 
 import (
-	"io/ioutil"
+	"bufio"
+	"os"
 	"strconv"
 	"strings"
 
 	"github.com/lukeab/adventofcode-2020/pkg/config"
 )
 
-func LoadAsSlice(conf *config.Config) ([]int, error) {
-
-	fileBytes, err := ioutil.ReadFile(conf.Inputfile)
-
+//LoadAsIntSlice Load file into integer slice list
+func LoadFileLinesAsIntSlice(conf *config.Config) ([]int, error) {
+	sSlice, err := LoadFileLinesAsStringSlice(conf)
 	if err != nil {
 		return nil, err
 	}
-	sSlice := strings.Split(string(fileBytes), "\n")
+
 	si := make([]int, 0, len(sSlice))
 	for _, a := range sSlice {
 		if a == "" {
@@ -28,4 +28,36 @@ func LoadAsSlice(conf *config.Config) ([]int, error) {
 		si = append(si, i)
 	}
 	return si, nil
+}
+
+//LoadFileLinesAsStringSlice Load file into string slice list
+func LoadFileLinesAsStringSlice(conf *config.Config) ([]string, error) {
+	file, err := os.Open(conf.Inputfile)
+	defer file.Close()
+	if err != nil {
+		return nil, err
+	}
+	scanner := bufio.NewScanner(file)
+	scanner.Split(bufio.ScanLines)
+	var sSlice []string
+	for scanner.Scan() {
+		sSlice = append(sSlice, scanner.Text())
+	}
+	return sSlice, nil
+}
+
+//LoadFileLInesAsMultiArray load file lines as array of arrays
+func LoadFileLInesAsMultiArray(conf *config.Config) ([][]string, error) {
+	sSlice, err := LoadFileLinesAsStringSlice(conf)
+	if err != nil {
+		return nil, err
+	}
+	mda := make([][]string, 0, len(sSlice))
+	for _, l := range sSlice {
+		var li []string
+		li = strings.Split(l, " ")
+		mda = append(mda, li)
+	}
+	return mda, nil
+
 }

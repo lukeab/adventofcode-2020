@@ -16,7 +16,11 @@ func main() {
 		log.Fatal(err)
 	}
 
-	sliceData, err := fileloader.LoadAsSlice(cfg)
+	//TODO: make this possibly env/arg driven from config with module constructor style.
+	cfg.Inputfile = "inputs/1"
+	cfg.Targetvalue = 2020
+
+	sliceData, err := fileloader.LoadFileLinesAsIntSlice(cfg)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -25,6 +29,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	fmt.Printf("%d + %d = %d\n", x, y, cfg.Targetvalue)
 	fmt.Printf("%d * %d = %d\n", x, y, (x * y))
 }
