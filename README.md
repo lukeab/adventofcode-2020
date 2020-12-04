@@ -15,4 +15,14 @@ TODO: Hardcoded value for input file and target, implement interface and help ou
 
 ## puzzle 2
 
-status: :x: TODO
+Solve for the password database
+
+status: WIP
+
+### Part 1
+
+status: :heavy_check_mark: Working
+
+### Part 2
+
+status: :x: not working (getting wrong answer)
