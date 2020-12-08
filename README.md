@@ -4,7 +4,9 @@ Advent of code 2020 puzzles implemented in golang
 
 ## Running
 
-each puzzle is in cmd/[x]/[x].go  where x is the number of the puzzle. 
+Go to https://adventofcode.com/2020 and sign up for your profile.
+
+Each puzzle is in cmd/[x]/[x].go  where x is the number of the puzzle.
 First retreive the input file for your account and put each input into the `inputs` file, numbering it by the puzzle number, with no file extension e.g. `inputs/1`
 Execute `go run cmd/1/1.go` for example to execute the first puzzle. This will load the file inputs/1 and execute the puzzle solution code.
 
