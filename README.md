@@ -5,19 +5,20 @@ Advent of code 2020 puzzles implemented in golang
 ## Running
 
 each puzzle is in cmd/[x]/[x].go  where x is the number of the puzzle. 
-Execute `go run cmd/1/1.go` for example to execute the first puzzle.
+First retreive the input file for your account and put each input into the `inputs` file, numbering it by the puzzle number, with no file extension e.g. `inputs/1`
+Execute `go run cmd/1/1.go` for example to execute the first puzzle. This will load the file inputs/1 and execute the puzzle solution code.
 
-## puzzle 1
+## Puzzle 1
 
 status: :heavy_check_mark: Working
 
 TODO: Hardcoded value for input file and target, implement interface and help output using something more substantial like cobra or kingpin
 
-## puzzle 2
+## Puzzle 2
 
 Solve for the password database
 
-status: WIP
+status: :heavy_check_mark: Working
 
 ### Part 1
 
@@ -25,4 +26,19 @@ status: :heavy_check_mark: Working
 
 ### Part 2
 
-status: :x: not working (getting wrong answer)
+status: :heavy_check_mark: Working
+
+## Puzzle 3
+
+Toboggan slope tree finder
+
+### Part 1
+
+status: :heavy_check_mark: Working
+
+### Part 2
+status: :heavy_check_mark: Working
+
+## Puzzle 4
+
+WIP: just starting 
