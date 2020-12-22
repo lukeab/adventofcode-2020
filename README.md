@@ -55,7 +55,7 @@ status: :heavy_check_mark: Working
 status: :heavy_check_mark: Working
 
 
-## Puzzle 4
+## Puzzle 5
 
 ### Part1
 
@@ -63,4 +63,4 @@ status: :heavy_check_mark: Working
 
 ### Part2
 
-status: WIP
+status: :heavy_check_mark: Working
