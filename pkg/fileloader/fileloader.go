@@ -33,10 +33,10 @@ func LoadFileLinesAsIntSlice(conf *config.Config) ([]int, error) {
 //LoadFileLinesAsStringSlice Load file into string slice list
 func LoadFileLinesAsStringSlice(conf *config.Config) ([]string, error) {
 	file, err := os.Open(conf.Inputfile)
-	defer file.Close()
 	if err != nil {
 		return nil, err
 	}
+	defer file.Close()
 	scanner := bufio.NewScanner(file)
 	scanner.Split(bufio.ScanLines)
 	var sSlice []string
@@ -54,8 +54,7 @@ func LoadFileLInesAsMultiArray(conf *config.Config) ([][]string, error) {
 	}
 	mda := make([][]string, 0, len(sSlice))
 	for _, l := range sSlice {
-		var li []string
-		li = strings.Split(l, " ")
+		li := strings.Split(l, " ")
 		mda = append(mda, li)
 	}
 	return mda, nil

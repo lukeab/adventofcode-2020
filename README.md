@@ -12,6 +12,8 @@ Execute `go run cmd/1/1.go` for example to execute the first puzzle. This will l
 
 ## Puzzle 1
 
+Solve for values equal 2020
+
 status: :heavy_check_mark: Working
 
 TODO: Hardcoded value for input file and target, implement interface and help output using something more substantial like cobra or kingpin
@@ -39,8 +41,15 @@ Toboggan slope tree finder
 status: :heavy_check_mark: Working
 
 ### Part 2
+
 status: :heavy_check_mark: Working
 
 ## Puzzle 4
 
-WIP: just starting 
+### Part1
+
+status: :heavy_check_mark: Working
+
+### Part2
+
+status: :heavy_check_mark: Working
