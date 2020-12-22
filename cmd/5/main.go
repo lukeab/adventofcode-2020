@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"sort"
 	"strconv"
 
 	"github.com/lukeab/adventofcode-2020/pkg/config"
@@ -18,7 +19,12 @@ func main() {
 
 	cfg.Inputfile = "inputs/5"
 	linesslice, err := fileloader.LoadFileLinesAsStringSlice(cfg)
+	if err != nil {
+		log.Fatal(err)
+	}
 	highestvalue := 0
+	myseatid := 0
+	var seatlist []int
 	for _, l := range linesslice {
 		//seatid := 0
 		browstr := ""
@@ -45,18 +51,29 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Printf("rowid %s=%d  ", browstr, rowid)
 		seatid, err := strconv.ParseInt(bseatstr, 2, 64)
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Printf("seatid %s=%d  ", bseatstr, seatid)
+
 		fullseatid := int(rowid*8 + seatid)
-		fmt.Printf("SeatID=%d\n", fullseatid)
+		seatlist = append(seatlist, fullseatid)
 		if fullseatid > highestvalue {
 			highestvalue = fullseatid
 		}
 
 	}
-	fmt.Println("Done\nHighest seat id = ", highestvalue)
+	sort.Ints(seatlist)
+	fmt.Printf("%d seatids found\n", len(seatlist))
+	lastseat := 0
+	for _, sid := range seatlist {
+
+		if lastseat != 0 && lastseat+1 != sid {
+			myseatid = lastseat + 1
+			break
+		}
+		lastseat = sid
+	}
+	fmt.Println("Part 1:\nHighest seat id = ", highestvalue)
+	fmt.Println("Part 2:\nMy Seat = ", myseatid)
 }
