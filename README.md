@@ -64,3 +64,13 @@ status: :heavy_check_mark: Working
 ### Part2
 
 status: :heavy_check_mark: Working
+
+## Puzzle 6
+
+### Part1
+
+status: :heavy_check_mark: Working
+
+### Part2
+
+status: :heavy_check_mark: Working

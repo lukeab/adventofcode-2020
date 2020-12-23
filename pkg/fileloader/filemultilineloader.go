@@ -3,6 +3,7 @@ package fileloader
 import (
 	"bufio"
 	"os"
+	"strings"
 )
 
 type Filereader interface {
@@ -39,26 +40,34 @@ func (fml *MultilineFilereader) Open() error {
 // Split blocks of lines by delimieter
 // Returns the text block string, eof boolean and any error raised
 func (fml *MultilineFilereader) ReadMultiLineBlock() (string, bool, error) {
+	lines, eof, err := fml.ReadMultiLineSlices()
+	textblock := strings.Join(lines, " ")
+	return textblock, eof, err
 
-	textblock := ""
+}
+
+// ReadMultiLIneSlices
+func (fml *MultilineFilereader) ReadMultiLineSlices() (lines []string, eof bool, err error) {
 	for {
 		if fml.scanner.Scan() {
 			l := fml.scanner.Text()
 			if len(l) == 0 {
 				break
 			} else {
-				textblock += " " + l
+				lines = append(lines, l)
 			}
 		} else {
 			err := fml.scanner.Err()
 			if err != nil {
-				return "", false, err
+				return lines, false, err
 			}
 			//is eof
-			return textblock, true, nil
+			return lines, true, nil
 		}
 	}
-	return textblock, false, nil
+
+	return lines, false, nil
+
 }
 
 // Close
