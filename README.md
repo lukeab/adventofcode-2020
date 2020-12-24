@@ -74,3 +74,14 @@ status: :heavy_check_mark: Working
 ### Part2
 
 status: :heavy_check_mark: Working
+
+
+## Puzzle 7
+
+### Part1
+
+status: :heavy_check_mark: Working
+
+### Part2
+
+status: NA
