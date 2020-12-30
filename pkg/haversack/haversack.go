@@ -76,6 +76,21 @@ func (h *Haversack) CountEventualContainers(depth int, limit int) (bagcount int)
 	return bagcount
 }
 
+func (h *Haversack) CountContainedBags(depth int, limit int) (bagcount int) {
+
+	depth++
+	if limit == 0 || depth <= limit {
+		for _, cr := range h.Contains {
+			fmt.Printf("%s-%d %s bags\n", strings.Repeat("\t", depth), cr.Quantity, cr.Contained.Name)
+			bagcount += cr.Quantity
+			bagcount += cr.Quantity * cr.Contained.CountContainedBags(depth, limit)
+
+			fmt.Printf("%s-Count: %d\n", strings.Repeat("\t", depth), bagcount)
+		}
+	}
+	return bagcount
+}
+
 func (h *Haversack) GetEventualContainingBags(depth int, limit int) []string {
 	fmt.Printf("%s%s\n", strings.Repeat("\t", depth), h.Name)
 	depth++

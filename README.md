@@ -84,4 +84,4 @@ status: :heavy_check_mark: Working
 
 ### Part2
 
-status: NA
+status: :heavy_check_mark: Working

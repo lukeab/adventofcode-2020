@@ -41,6 +41,10 @@ func main() {
 	containerbags = removeDuplicateValues(containerbags)
 	fmt.Println("Part 1:")
 	fmt.Printf("shiny gold bags may be contained by %d eventual bags\n", len(containerbags))
+	fmt.Println("Part 2:")
+	containedbags := targetbag.CountContainedBags(0, 0)
+	fmt.Printf("shiny gold bag contains %d bags", containedbags)
+
 }
 
 func removeDuplicateValues(intSlice []string) []string {
