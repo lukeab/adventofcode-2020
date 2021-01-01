@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Advent of code 2020 Day 6")
+	fmt.Println("Advent of code 2020 Day 7")
 	cfg, err := config.New()
 	if err != nil {
 		log.Fatal(err)
