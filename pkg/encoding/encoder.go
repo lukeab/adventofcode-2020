@@ -46,22 +46,34 @@ func NewEncoder(is []int, preamblelen int) *Encoder {
 	return &enc
 }
 
-func (en *Encoder) GetMinMAX(start int) (int, int, error) {
+func (en *Encoder) FindVulnerability(target int) (int, error) {
+	for x := 0; x < target; x++ {
+		totalval := en.intslice[x]
+		for y := x + 1; y < target; y++ {
+			totalval += en.intslice[y]
+			if en.intslice[target] == totalval {
+				fmt.Println(en.intslice[x:y])
+				return en.GetMinMaxSum(x, y), nil
+			}
+		}
+	}
+	return 0, fmt.Errorf("No matching sum found for %d in lines %d => %d", en.intslice[target], 0, target)
+}
+
+func (en *Encoder) GetMinMaxSum(start int, end int) int {
 
 	min := 0
-	minprod := 0
 	max := 0
-	maxprod := 0
 
-	for i := start; i < start+en.preamblelen; i++ {
-		intval := (en.intslice)[i]
-
+	for i := start; i < end; i++ {
+		intval := en.intslice[i]
 		if min == 0 || min > intval {
 			min = intval
 		}
-		if max == 0 || max < intval {
+		if max < intval {
 			max = intval
 		}
 	}
-	return minprod, maxprod, nil
+	fmt.Printf("%d + %d = %d\n", min, max, min+max)
+	return min + max
 }

@@ -35,5 +35,9 @@ func main() {
 		fmt.Println("stream validated true when it shouldn't")
 	}
 	fmt.Println("Part 2:")
-
+	sumval, err := encoder.FindVulnerability(value)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Vulnerability = %d\n", sumval)
 }
