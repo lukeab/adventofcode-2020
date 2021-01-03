@@ -54,7 +54,6 @@ status: :heavy_check_mark: Working
 
 status: :heavy_check_mark: Working
 
-
 ## Puzzle 5
 
 ### Part1
@@ -75,7 +74,6 @@ status: :heavy_check_mark: Working
 
 status: :heavy_check_mark: Working
 
-
 ## Puzzle 7
 
 ### Part1
@@ -86,7 +84,6 @@ status: :heavy_check_mark: Working
 
 status: :heavy_check_mark: Working
 
-
 ## Puzzle 8
 
 ### Part1
@@ -96,3 +93,14 @@ status: :heavy_check_mark: Working
 ### Part2
 
 status: :heavy_check_mark: Working
+
+
+## Puzzle 9
+
+### Part1
+
+status: :heavy_check_mark: Working
+
+### Part2
+
+status: TODO
